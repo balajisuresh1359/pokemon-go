@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon GO</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e0f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #FF4757;
+            font-size: 2.5em;
+        }
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        button {
+            background-color: #FF4757;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff6b81;
+        }
+        .foldable {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f1c40f;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .emoji {
+            font-size: 1.5em;
+        }
+        @media (max-width: 600px) {
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🐾 Pokemon GO 🌍</h1>
+    
+    <label for="nameDropdown">Why is Pokemon GO good for health and eyesight 👀?</label>
+
+    <button id="toggleButton">🟢 See answer</button>
+    
+    <div class="foldable" id="nameDisplay">
+        Because, I love it! 🎮
+    </div>
+</div>
+
+<script>
+    document.getElementById('toggleButton').onclick = function() {
+        var foldable = document.getElementById('nameDisplay');
+        if (foldable.style.display === "none" || foldable.style.display === "") {
+            foldable.style.display = "block";
+            this.innerText = "🔴 Close";
+        } else {
+            foldable.style.display = "none";
+            this.innerText = "🟢 Open";
+        }
+    };
+</script>
+
+</body>
+</html>
