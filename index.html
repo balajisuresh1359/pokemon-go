@@ -52,8 +52,45 @@
             text-align: center;
             font-size: 1.2em;
         }
-        .emoji {
-            font-size: 1.5em;
+        .heart {
+            display: none; 
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: heart-animation 1s forwards;
+            margin: 20px auto; 
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes heart-animation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
         @media (max-width: 600px) {
             button {
@@ -69,23 +106,26 @@
     
     <label for="nameDropdown">Why is Pokemon GO good for health and eyesight 👀?</label>
 
-    <button id="toggleButton">🟢 See answer</button>
+    <button id="toggleButton">🔒 See answer</button>
     
     <div class="foldable" id="nameDisplay">
         Because, I love it! 🎮
     </div>
+    
+    <div class="heart" id="heart"></div>
 </div>
 
 <script>
     document.getElementById('toggleButton').onclick = function() {
         var foldable = document.getElementById('nameDisplay');
-        if (foldable.style.display === "none" || foldable.style.display === "") {
-            foldable.style.display = "block";
-            this.innerText = "🔴 Close";
-        } else {
-            foldable.style.display = "none";
-            this.innerText = "🟢 Open";
-        }
+        var heart = document.getElementById('heart');
+        this.style.display = 'none'; // Hide the button
+        foldable.style.display = "block"; // Show the answer
+        heart.style.display = "block"; // Show the heart
+        heart.style.animation = "heart-animation 1s forwards"; // Trigger animation
+        setTimeout(() => {
+            heart.style.display = "none"; 
+        }, 1000);
     };
 </script>
 
